@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# データセットのインポート
+# データセット読み込み
 dataset = pd.read_csv('wine_data.csv')
 
 # 独立変数と従属変数の分割  
@@ -16,22 +16,22 @@ y = dataset.iloc[:, 0].values
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
 
-# 特徴スケーリング
+# 標準化
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
-# PCAでデータの次元を低下する
+# 主成分分析(PCA)で次元削減
 from sklearn.decomposition import PCA
-pca = PCA(n_components = 2) # 視覚化するために独立変数の数を2つにする
+pca = PCA(n_components = 2) # 可視化するために独立変数の数を2つにする
 X_train = pca.fit_transform(X_train)
 X_test = pca.transform(X_test)
 explained_variance = pca.explained_variance_ratio_
 
-# LDAでデータの次元を低下する
+# 線形判別分類(LDA)で次元削減
 ## from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
-## lda = LDA(n_components = 2) # 視覚化するために独立変数の数を2つにする
+## lda = LDA(n_components = 2) # 可視化するために独立変数の数を2つにする
 ## X_train = lda.fit_transform(X_train, y_train)
 ## X_test = lda.transform(X_test)
 
@@ -50,7 +50,7 @@ accuracy = accuracy_score(y_test, y_pred)
 # PCAでSVMの結果: 精度 = 97.77%
 # LDAでSVMの結果: 精度 = 97.77%
 
-# データの視覚化
+# データの可視化
 from matplotlib.colors import ListedColormap
 # 学習データ
 X_set, y_set = X_train, y_train
