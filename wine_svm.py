@@ -24,14 +24,14 @@ X_test = sc.transform(X_test)
 
 # 主成分分析(PCA)で次元削減
 from sklearn.decomposition import PCA
-pca = PCA(n_components = 2) # 可視化するために独立変数の数を2つにする
+pca = PCA(n_components = 2) # 可視化するために２次元まで削減する
 X_train = pca.fit_transform(X_train)
 X_test = pca.transform(X_test)
 explained_variance = pca.explained_variance_ratio_
 
 # 線形判別分類(LDA)で次元削減
 ## from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
-## lda = LDA(n_components = 2) # 可視化するために独立変数の数を2つにする
+## lda = LDA(n_components = 2) # 可視化するために２次元まで削減する
 ## X_train = lda.fit_transform(X_train, y_train)
 ## X_test = lda.transform(X_test)
 
