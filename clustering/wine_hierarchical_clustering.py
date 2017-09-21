@@ -65,7 +65,7 @@ plt.scatter(X[y_hc == 4, 0], X[y_hc == 4, 1], s = 100, c = 'magenta', label = 'C
 plt.scatter(X[y_hc == 5, 0], X[y_hc == 5, 1], s = 100, c = 'pink', label = 'Cluster 6')
 plt.scatter(X[y_hc == 6, 0], X[y_hc == 6, 1], s = 100, c = 'black', label = 'Cluster 7')
 plt.title('Clusters of classes')
-plt.xlabel('PC_1)')
+plt.xlabel('PC_1')
 plt.ylabel('PC_2')
 plt.legend()
 plt.show()
