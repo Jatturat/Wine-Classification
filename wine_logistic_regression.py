@@ -43,7 +43,7 @@ classifier.fit(X_train, y_train)
 # テストデータを予測する
 y_pred = classifier.predict(X_test)
 
-# 混乱行列を作って精度を測る
+# 混同行列を作って精度を測る
 from sklearn.metrics import confusion_matrix, accuracy_score
 cm = confusion_matrix(y_test, y_pred)
 accuracy = accuracy_score(y_test, y_pred)
